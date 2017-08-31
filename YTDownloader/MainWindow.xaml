@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="334.353" Width="1096.862">
     <Grid>
-        <local:Dowloader Margin="0"/>
+        <local:Downloader x:Name="downloader" OpenSettings="OnOpenSettings" />
+        <local:Settings x:Name="settings" Visibility="Hidden" />
     </Grid>
 </Window>

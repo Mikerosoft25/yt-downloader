@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace YTDownloader
 {
     /// <summary>
-    /// Interaktionslogik für Dowloader.xaml
+    /// Interaktionslogik für Settings.xaml
     /// </summary>
-    public partial class Dowloader : UserControl
+    public partial class Settings : UserControl
     {
-        public Dowloader()
+        public Settings()
         {
             InitializeComponent();
         }

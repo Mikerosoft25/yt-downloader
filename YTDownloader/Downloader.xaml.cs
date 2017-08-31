@@ -16,19 +16,20 @@ using System.Windows.Shapes;
 namespace YTDownloader
 {
     /// <summary>
-    /// Interaktionslogik für MainWindow.xaml
+    /// Interaktionslogik für Downloader.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Downloader : UserControl
     {
-        public MainWindow()
+        public event EventHandler OpenSettings;
+
+        public Downloader()
         {
             InitializeComponent();
         }
 
-        private void OnOpenSettings(object sender, EventArgs e)
+        private void OnSettingsClick(object sender, RoutedEventArgs e)
         {
-            settings.Visibility = Visibility.Visible;
-            downloader.Visibility = Visibility.Hidden;
+            OpenSettings?.Invoke(this, new EventArgs());
         }
     }
 }
