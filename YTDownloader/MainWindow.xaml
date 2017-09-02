@@ -8,6 +8,6 @@
         Title="MainWindow" Height="334.353" Width="1096.862">
     <Grid>
         <local:Downloader x:Name="downloader" OpenSettings="OnOpenSettings" />
-        <local:Settings x:Name="settings" Visibility="Hidden" />
+        <local:Settings x:Name="settings" Visibility="Hidden" ReturnSettings="OnReturnSettings"/>
     </Grid>
 </Window>

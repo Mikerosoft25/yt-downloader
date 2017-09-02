@@ -24,6 +24,7 @@ namespace YTDownloader
 
         public Downloader()
         {
+            SettingsManager.Instance.OutputDirectory = "test";
             InitializeComponent();
         }
 

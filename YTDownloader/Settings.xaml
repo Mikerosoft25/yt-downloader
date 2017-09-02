@@ -5,8 +5,27 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:YTDownloader"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="401.681">
+             d:DesignHeight="300" d:DesignWidth="500
+             ">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Button Grid.Column="1" Padding="2" Click="OnReturnClick" VerticalContentAlignment="Center" HorizontalAlignment="Left">
+            <Image Source="./Icons/returnArrow.png" />
+        </Button>
+        <Grid Grid.Row="1" Margin="0,31,0,-30">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="160" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="80" />
+            </Grid.ColumnDefinitions>
+            <Label x:Name="label" Content="Download directory:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="16"/>
+            <TextBox x:Name="downloadDirectoryTextbox" TextWrapping="Wrap" Grid.Column="1" VerticalContentAlignment="Center" />
+            <Button x:Name="browseButton" Content="Browse..." Grid.Column="2" Click="OnBrowseClick"/>
+
+        </Grid>
+
     </Grid>
 </UserControl>

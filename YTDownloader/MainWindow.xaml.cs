@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Forms;
 
 namespace YTDownloader
 {
@@ -23,12 +24,21 @@ namespace YTDownloader
         public MainWindow()
         {
             InitializeComponent();
+            Title = "YT Downloader";
         }
 
         private void OnOpenSettings(object sender, EventArgs e)
         {
             settings.Visibility = Visibility.Visible;
             downloader.Visibility = Visibility.Hidden;
+            Title = "YT Downloader - Settings";
+        }
+
+        private void OnReturnSettings(object sender, EventArgs e)
+        {
+            settings.Visibility = Visibility.Hidden;
+            downloader.Visibility = Visibility.Visible;
+            Title = "YT Downloader";
         }
     }
 }
