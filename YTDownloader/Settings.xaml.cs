@@ -40,7 +40,7 @@ namespace YTDownloader
             if (downloadDirectory.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 downloadDirectoryTextbox.Text = downloadDirectory.SelectedPath;
-                SettingsManager.Instance.OutputDirectory = downloadDirectory.SelectedPath;
+                StateManager.Instance.OutputDirectory = downloadDirectory.SelectedPath;
             }
         }
 

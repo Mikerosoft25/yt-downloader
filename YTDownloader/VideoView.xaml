@@ -13,14 +13,16 @@
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
 
-        <ProgressBar Grid.Column="1" Value="100" Height="5" VerticalAlignment="Bottom" Foreground="Red" />
-        <local:Spinner Width="40" Height="40" Margin="5"  Visibility="Collapsed"/>
-        <Image Source="https://img.youtube.com/vi/vRFt9rnCgfQ/mqdefault.jpg"/>
-        <Label Content="https://www.youtube.com/watch?v=vRFt9rnCgfQ" Grid.Column="1" VerticalAlignment="Center" FontStyle="Italic" Foreground="DimGray"/>
+        <local:Spinner x:Name="spinner" Width="40" Height="40" Margin="5"/>
+        <Image x:Name="thumbnail" Visibility="Collapsed" />
+        
+        <Label x:Name="title" Content="https://www.youtube.com/watch?v=vRFt9rnCgfQ" Grid.Column="1" VerticalAlignment="Center" FontStyle="Italic" Foreground="DimGray"/>
+        <ProgressBar Grid.Column="1" Height="5" VerticalAlignment="Bottom" Visibility="Hidden" />
+
         <Border Grid.Column="2" BorderBrush="#FF000000" BorderThickness="1,1,1,1" CornerRadius="8,8,8,8" Margin="5">
-            <!--<Image Source="./Icons/download.png" />-->
-            <Image Source="C:\Users\nralb\Desktop\refresh.png" />
+            <Image Source="./Icons/download.png" />
         </Border>
+        
         <Separator Grid.ColumnSpan="3" VerticalContentAlignment="Bottom" VerticalAlignment="Bottom" Margin="0" />
     </Grid>
 </UserControl>

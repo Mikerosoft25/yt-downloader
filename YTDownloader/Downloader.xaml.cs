@@ -24,7 +24,7 @@ namespace YTDownloader
 
         public Downloader()
         {
-            SettingsManager.Instance.OutputDirectory = "test";
+            StateManager.Instance.OutputDirectory = "test";
             InitializeComponent();
         }
 
@@ -35,7 +35,7 @@ namespace YTDownloader
 
         private void OnAddClick(object sender, RoutedEventArgs e)
         {
-            this.videoList.Children.Add(new VideoView());
+            videoList.Children.Add(new VideoView(textBox.Text));
         }
     }
 }

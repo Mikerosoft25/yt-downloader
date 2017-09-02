@@ -1,4 +1,6 @@
-﻿namespace YTDownloader
+﻿using YoutubeExplode.Models.MediaStreams;
+
+namespace YTDownloader
 {
     public class StreamMetaData
     {
@@ -9,6 +11,12 @@
         {
             Bitrate = bitrate;
             Url = url;
+        }
+
+        public StreamMetaData(AudioStreamInfo stream)
+        {
+            Bitrate = (int)stream.Bitrate;
+            Url = stream.Url;
         }
     }
 }
