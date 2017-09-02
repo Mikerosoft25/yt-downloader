@@ -26,6 +26,7 @@ namespace YTDownloader
         public Settings()
         {
             InitializeComponent();
+            downloadDirectoryTextbox.Text = StateManager.Instance.OutputDirectory;
         }
 
         private void OnReturnClick(object sender, RoutedEventArgs e)
@@ -42,6 +43,8 @@ namespace YTDownloader
                 downloadDirectoryTextbox.Text = downloadDirectory.SelectedPath;
                 StateManager.Instance.OutputDirectory = downloadDirectory.SelectedPath;
             }
+
+            StateManager.Instance.SaveSettings();
         }
 
     }

@@ -17,7 +17,7 @@
                 <ColumnDefinition Width="30" />
                 <ColumnDefinition Width="30" />
             </Grid.ColumnDefinitions>
-            <TextBox x:Name="textBox" Text="" FontSize="18" FontWeight="Bold"/>
+            <TextBox x:Name="urlInput" Text="Enter video or playlist URL" FontSize="18" Background="White" Foreground="DimGray" GotKeyboardFocus="UrlInput_Enter" LostKeyboardFocus="UrlInput_Leave"/>
             <Button x:Name="button" Grid.Column="1" Background="White" Click="OnAddClick">
                 <Image Source="./Icons/add.png" />
             </Button>
@@ -25,6 +25,9 @@
                 <Image Source="./Icons/settings.png" />
             </Button>
         </Grid>
-        <StackPanel x:Name="videoList" Grid.Row="2" Orientation="Vertical" />
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" CanContentScroll="True">
+            <StackPanel x:Name="videoList" Grid.Row="2" Orientation="Vertical"/>
+        </ScrollViewer>
+
     </Grid>
 </UserControl>

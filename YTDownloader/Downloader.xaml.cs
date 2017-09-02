@@ -24,7 +24,6 @@ namespace YTDownloader
 
         public Downloader()
         {
-            StateManager.Instance.OutputDirectory = "test";
             InitializeComponent();
         }
 
@@ -35,9 +34,31 @@ namespace YTDownloader
 
         private void OnAddClick(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(textBox.Text)) return;
+            if (string.IsNullOrEmpty(urlInput.Text)) return;
 
-            videoList.Children.Add(new VideoView(textBox.Text));
+            videoList.Children.Add(new VideoView(urlInput.Text));
+        }
+
+        private void UrlInput_Enter(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            if(urlInput.Text == "Enter video or playlist URL")
+            {
+                urlInput.Text = "";
+
+                urlInput.Foreground = Brushes.Black;
+                urlInput.FontWeight = FontWeights.Bold;
+            }
+        }
+
+        private void UrlInput_Leave(object sender, KeyboardFocusChangedEventArgs e)
+        {
+            if (urlInput.Text == "")
+            {
+                urlInput.Text = "Enter video or playlist URL";
+
+                urlInput.Foreground = Brushes.DimGray;
+                urlInput.FontWeight = FontWeights.Normal;
+            }
         }
     }
 }
