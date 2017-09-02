@@ -17,10 +17,10 @@
         <Image x:Name="thumbnail" Visibility="Collapsed" />
         
         <Label x:Name="title" Content="https://www.youtube.com/watch?v=vRFt9rnCgfQ" Grid.Column="1" VerticalAlignment="Center" FontStyle="Italic" Foreground="DimGray"/>
-        <ProgressBar Grid.Column="1" Height="5" VerticalAlignment="Bottom" Visibility="Hidden" />
+        <ProgressBar x:Name="progress" Grid.Column="1" Height="5" VerticalAlignment="Bottom" Visibility="Hidden" />
 
-        <Border Grid.Column="2" BorderBrush="#FF000000" BorderThickness="1,1,1,1" CornerRadius="8,8,8,8" Margin="5">
-            <Image Source="./Icons/download.png" />
+        <Border x:Name="button" Grid.Column="2" BorderBrush="#FF000000" BorderThickness="1,1,1,1" CornerRadius="8,8,8,8" Margin="5" MouseEnter="ButtonEnter" MouseLeave="ButtonLeave" MouseLeftButtonUp="ButtonMouseUp">
+            <Image x:Name="buttonImage" Source="./Icons/download.png" />
         </Border>
         
         <Separator Grid.ColumnSpan="3" VerticalContentAlignment="Bottom" VerticalAlignment="Bottom" Margin="0" />

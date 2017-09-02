@@ -35,6 +35,8 @@ namespace YTDownloader
 
         private void OnAddClick(object sender, RoutedEventArgs e)
         {
+            if (string.IsNullOrEmpty(textBox.Text)) return;
+
             videoList.Children.Add(new VideoView(textBox.Text));
         }
     }
