@@ -32,5 +32,10 @@ namespace YTDownloader
         {
             OpenSettings?.Invoke(this, new EventArgs());
         }
+
+        private void OnAddClick(object sender, RoutedEventArgs e)
+        {
+            this.videoList.Children.Add(new VideoView());
+        }
     }
 }
