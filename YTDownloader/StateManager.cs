@@ -10,6 +10,7 @@ namespace YTDownloader
 
         private const string settingsFile = "./settings.ini";
 
+        public string SoundQuality { get; set; }
         public string OutputDirectory { get; set; }
         public YoutubeClient Client { get; set; }
 
@@ -33,6 +34,7 @@ namespace YTDownloader
             {
                 StreamWriter sw = File.CreateText(settingsFile);
                 sw.WriteLine("outputDirectory=" + Environment.ExpandEnvironmentVariables("%HOMEDRIVE%%HOMEPATH%\\Downloads"));
+                sw.WriteLine("soundQuality=Maximum");
                 sw.Close();
             }
 
@@ -48,12 +50,19 @@ namespace YTDownloader
                 {
                     OutputDirectory = temp[1];
                 }
+
+                if (temp[0] == "soundQuality"){
+                    SoundQuality = temp[1];
+                }
             }
         }
 
         public void SaveSettings()
         {
-            File.WriteAllText(settingsFile, $"outputDirectory={OutputDirectory}");
+            StreamWriter sw = File.CreateText(settingsFile);
+            sw.WriteLine("outputDirectory="+OutputDirectory);
+            sw.WriteLine("soundQuality="+SoundQuality);
+            sw.Close();
         }
     }
 }
