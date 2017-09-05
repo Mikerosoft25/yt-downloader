@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -48,16 +49,36 @@ namespace YTDownloader
         {
             if (!videoLoaded) return;
 
-            StreamMetaData selectedStream = video.MaxAudio;
+            StreamMetaData selectedStream;
+            switch (StateManager.Instance.SoundQuality)
+            {
+                case "Minimum":
+                    selectedStream = video.MinAudio;
+                    break;
+                case "Medium":
+                    selectedStream = video.MediumAudio;
+                    break;
+                case "Maximum":
+                default:
+                    selectedStream = video.MaxAudio;
+                    break;
+            }
 
             progress.Visibility = Visibility.Visible;
 
             try
             {
+                string filename = video.Title;
+                foreach (char invalidChar in Path.GetInvalidFileNameChars())
+                {
+                    filename.Replace(invalidChar.ToString(), String.Empty);
+                }
+
                 bool error = false;
                 FFmpegInstance instance = new FFmpeg()
                     .AddInput(selectedStream.Url)
-                    .AddOutput('"' + StateManager.Instance.OutputDirectory + "\\" + video.Title + ".mp3\"")
+                    .AddOutput(new OutputBuilder($"\"{StateManager.Instance.OutputDirectory}\\{filename}.mp3\"")
+                        .WithFormat("mp3"))
                     .Run();
 
                 instance.ConversionError += (s, msg) =>
