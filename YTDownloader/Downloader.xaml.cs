@@ -37,6 +37,10 @@ namespace YTDownloader
             if (string.IsNullOrEmpty(urlInput.Text)) return;
 
             videoList.Children.Add(new VideoView(urlInput.Text));
+
+            urlInput.Text = "Enter video or playlist URL";
+            urlInput.Foreground = Brushes.DimGray;
+            urlInput.FontWeight = FontWeights.Normal;
         }
 
         private void UrlInput_Enter(object sender, KeyboardFocusChangedEventArgs e)

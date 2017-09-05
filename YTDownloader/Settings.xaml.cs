@@ -33,9 +33,6 @@ namespace YTDownloader
         private void OnReturnClick(object sender, RoutedEventArgs e)
         {
             ReturnSettings?.Invoke(this, new EventArgs());
-            StateManager.Instance.SoundQuality = qualityComboBox.Text;
-            StateManager.Instance.SaveSettings();
-            saveTextBox.Content = "";
         }
 
         private void OnBrowseClick(object sender, RoutedEventArgs e)
@@ -51,13 +48,10 @@ namespace YTDownloader
             StateManager.Instance.SaveSettings();
         }
 
-        private void OnSaveClick(Object sender, RoutedEventArgs e)
+        private void ChangeQuality(object sender, EventArgs e)
         {
             StateManager.Instance.SoundQuality = qualityComboBox.Text;
             StateManager.Instance.SaveSettings();
-            saveTextBox.Content = "";
-            saveTextBox.Content = "Successfully saved.";
         }
-
     }
 }

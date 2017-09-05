@@ -48,7 +48,15 @@ namespace YTDownloader
 
                 if (temp[0] == "outputDirectory")
                 {
-                    OutputDirectory = temp[1];
+                    if (File.Exists(OutputDirectory))
+                    {
+                        OutputDirectory = temp[1];
+                    }
+                    else
+                    {
+                        OutputDirectory = Environment.ExpandEnvironmentVariables("%HOMEDRIVE%%HOMEPATH%\\Downloads");
+                    }
+                    
                 }
 
                 if (temp[0] == "soundQuality"){
