@@ -15,18 +15,9 @@
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="28"/>
-                <ColumnDefinition Width="35"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
             <Button Padding="2" Click="OnReturnClick" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="30">
                 <Image Source="./Icons/returnArrow.png" Margin="0" RenderTransformOrigin="3.292,0.917" />
             </Button>
-            <Button Grid.Column="1" Padding="2" VerticalContentAlignment="Center" HorizontalAlignment="Left" Width="30" Click="OnSaveClick" Grid.ColumnSpan="2" Margin="0,0,-30,0">
-                <Image Source="./Icons/save.png" />
-            </Button>
-            <Label x:Name="saveTextBox" Content="" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="16" Height="30"/>
         </Grid>
 
         <Grid Grid.Row="1" Margin="0,30,0,1" Grid.RowSpan="2">
@@ -46,7 +37,7 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
             <Label x:Name="label1" Content="Sound quality:" FontSize="16" VerticalAlignment="Top" Padding="5" Grid.IsSharedSizeScope="True" Margin="40,0,0,0"/>
-            <ComboBox x:Name="qualityComboBox" Grid.Column="1" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+            <ComboBox x:Name="qualityComboBox" Grid.Column="1" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" LayoutUpdated="ChangeQuality">
                 <ComboBoxItem Content="Maximum"/>
                 <ComboBoxItem Content="Medium "/>
                 <ComboBoxItem Content="Minimum"/>

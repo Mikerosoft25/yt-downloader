@@ -34,9 +34,13 @@ namespace YTDownloader
 
         private void OnAddClick(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(urlInput.Text)) return;
+            if (string.IsNullOrEmpty(urlInput.Text) || urlInput.Text == "Enter video or playlist URL") return;
 
             videoList.Children.Add(new VideoView(urlInput.Text));
+
+            urlInput.Text = "Enter video or playlist URL";
+            urlInput.Foreground = Brushes.DimGray;
+            urlInput.FontWeight = FontWeights.Normal;
         }
 
         private void UrlInput_Enter(object sender, KeyboardFocusChangedEventArgs e)
@@ -58,6 +62,18 @@ namespace YTDownloader
 
                 urlInput.Foreground = Brushes.DimGray;
                 urlInput.FontWeight = FontWeights.Normal;
+            }
+        }
+
+        private void PressedEnter(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                if (string.IsNullOrEmpty(urlInput.Text) || urlInput.Text == "Enter video or playlist URL") return;
+
+                videoList.Children.Add(new VideoView(urlInput.Text));
+
+                urlInput.Text = "";
             }
         }
     }

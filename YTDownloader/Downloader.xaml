@@ -17,7 +17,7 @@
                 <ColumnDefinition Width="30" />
                 <ColumnDefinition Width="30" />
             </Grid.ColumnDefinitions>
-            <TextBox x:Name="urlInput" Text="Enter video or playlist URL" FontSize="18" Background="White" Foreground="DimGray" GotKeyboardFocus="UrlInput_Enter" LostKeyboardFocus="UrlInput_Leave"/>
+            <TextBox x:Name="urlInput" Text="Enter video or playlist URL" FontSize="18" Background="White" Foreground="DimGray" GotKeyboardFocus="UrlInput_Enter" LostKeyboardFocus="UrlInput_Leave" KeyDown="PressedEnter"/>
             <Button x:Name="button" Grid.Column="1" Background="White" Click="OnAddClick">
                 <Image Source="./Icons/add.png" />
             </Button>
