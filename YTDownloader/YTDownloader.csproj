@@ -186,7 +186,6 @@
     <Content Include="ffmpeg.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Icons\save.png" />
     <Resource Include="Icons\done.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

@@ -47,7 +47,6 @@ namespace YTDownloader
 
             StateManager.Instance.SaveSettings();
         }
-
         private void ChangeQuality(object sender, EventArgs e)
         {
             StateManager.Instance.SoundQuality = qualityComboBox.Text;
