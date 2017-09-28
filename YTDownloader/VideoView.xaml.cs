@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -68,11 +70,18 @@ namespace YTDownloader
 
             try
             {
-                string filename = video.Title;
-                foreach (char invalidChar in Path.GetInvalidFileNameChars())
+                StringBuilder filename = new StringBuilder();
+                HashSet<char> invalidChars = new HashSet<char>(Path.GetInvalidFileNameChars());
+                foreach (char item in video.Title)
                 {
-                    filename.Replace(invalidChar.ToString(), String.Empty);
+                    if (!invalidChars.Contains(item))
+                    {
+                        filename.Append(item);
+                    }
                 }
+
+                if (String.IsNullOrWhiteSpace(filename.ToString()))
+                    filename.Append("yt-video");
 
                 bool error = false;
                 FFmpegInstance instance = new FFmpeg()

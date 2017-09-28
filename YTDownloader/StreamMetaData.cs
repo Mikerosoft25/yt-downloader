@@ -18,5 +18,10 @@ namespace YTDownloader
             Bitrate = (int)stream.Bitrate;
             Url = stream.Url;
         }
+
+        public override string ToString()
+        {
+            return '{' + Bitrate + ", " + Url + '}';
+        }
     }
 }
